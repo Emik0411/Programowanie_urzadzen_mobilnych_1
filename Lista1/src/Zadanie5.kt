@@ -3,27 +3,31 @@ Zadanie 5.
  **/
 
 fun checkArmstrong(liczba: Int): Boolean {
-    val ilosc = liczba.toString().length
+    if (liczba >= 0) {
+        val ilosc = liczba.toString().length
 
-    var aktualna = liczba
-    var suma = 0
-    for (i in 1..ilosc) {
+        var aktualna = liczba
+        var suma = 0
+        for (i in 1..ilosc) {
 
-        var cyfra = aktualna % 10
+            var cyfra = aktualna % 10
 
-        aktualna = (aktualna - cyfra) / 10
+            aktualna = (aktualna - cyfra) / 10
 
-        var poczekalnia = 1
+            var poczekalnia = 1
 
-        for (n in 1..ilosc) {
-            poczekalnia = poczekalnia * cyfra
+            for (n in 1..ilosc) {
+                poczekalnia = poczekalnia * cyfra
+            }
+            suma = suma + poczekalnia
+
+
         }
-        suma = suma + poczekalnia
-
-
-    }
-    if (suma == liczba) {
-        return true
+        if (suma == liczba) {
+            return true
+        } else {
+            return false
+        }
     }
     else {
         return false
